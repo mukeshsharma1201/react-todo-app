@@ -1,0 +1,118 @@
+.todoItemContainer {
+  cursor: pointer;
+  margin-top: 47px;
+  height: 70px;
+  padding: 5px 20px;
+  background: #dfeffe;
+  border-radius: 15px;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  width: 45%;
+}
+
+.todoItemContainerComplted {
+  background: rgba(229, 229, 229, 0.7);
+  text-decoration: line-through;
+}
+
+.doneButtonContainer {
+  min-width: 28px;
+  min-height: 28px;
+  border-radius: 14px;
+  background: #2d99fc;
+  border: 1px solid #ffffff;
+  box-sizing: border-box;
+}
+
+.todoDoneButton {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: inline-block;
+  cursor: pointer;
+  width: 27px;
+  height: 27px;
+  border-radius: 13px;
+  border: 1px solid #2d99fc;
+  outline: none;
+  vertical-align: middle;
+  background-color: #fff;
+  height: 27px;
+  width: 27px;
+}
+
+.todoDoneButton:checked {
+  background: #2d99fc;
+}
+
+.todoItemTitle {
+  margin-left: 25px;
+  /* margin-right: 45px; */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 23px;
+  color: #08355f;
+}
+
+.cancelButtonContainer {
+  display: none;
+  height: 30px;
+  margin-left: auto;
+}
+
+.todoItemContainer:hover .cancelButtonContainer {
+  display: inline-block;
+}
+
+.cancelIcon {
+  height: 30px;
+}
+
+/* override the default button styles provided by the browsers */
+button {
+  margin: 0;
+  background: transparent;
+  display: inline-block;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 250ms ease-in-out, transform 150ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:active {
+  opacity: 0.9;
+  transform: scale(0.95);
+}
+
+.todoEditBox {
+  margin-left: 25px;
+  width: 100%;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  color: #08355f;
+  font-size: 20px;
+  line-height: 23px;
+  border: 1px solid rgba(44, 135, 218, 0.7);
+  box-sizing: border-box;
+  padding: 12px 20px;
+  border-radius: 17px;
+}
+
+.todoEditBox:focus {
+  outline: none;
+  box-shadow: 0px 0px 3px #2d99fc;
+}

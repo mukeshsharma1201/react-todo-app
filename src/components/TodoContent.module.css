@@ -1,0 +1,123 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.addTodoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 47px;
+  height: 100%;
+}
+
+.todoInputBoxContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  height: 63px;
+  width: 60%;
+}
+
+.todoInputBox {
+  width: 90%;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  color: #08355f;
+  font-size: 20px;
+  line-height: 23px;
+  background: #dfeffe;
+  border: 1px solid rgba(44, 135, 218, 0.7);
+  box-sizing: border-box;
+  padding: 12px 20px;
+  border-radius: 17px;
+}
+
+.todoInputBox:focus {
+  outline: none;
+  box-shadow: 0px 0px 3px #2d99fc;
+}
+
+.todoInputSendButton {
+  height: 48px;
+  width: 48px;
+  border-radius: 5px 17px 5px;
+  background-color: #2d99fc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.todoInputSendButtonHidden {
+  display: none;
+}
+
+.filterContainer {
+  display: flex;
+  width: 90%;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 31px;
+}
+
+.filterChip {
+  cursor: pointer;
+  height: 40px;
+  border-radius: 20px;
+  padding: 0 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(44, 135, 218, 0.3);
+  font-family: Roboto;
+  font-style: normal;
+  color: #fff;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 28px;
+}
+
+.filterChipActive {
+  background-color: #2d99fc;
+  font-weight: bold;
+}
+
+/* list continer */
+
+.todoItemsListContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 90%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-bottom: 100px;
+}
+
+.searchBoxContainer {
+  height: 152px;
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+}
+
+.searchInputBoxContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 63px;
+  width: 60%;
+}
+
+.searchInputBox {
+  width: 100%;
+  border-radius: 30px;
+}

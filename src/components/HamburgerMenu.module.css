@@ -1,0 +1,36 @@
+.hamburgerMenuContainer {
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid red; */
+  height: 100%;
+}
+
+.navigationContainer {
+  background: #2d99fc;
+  box-shadow: 0px 1px 7px #08355fc7;
+  margin-top: 26px;
+  border-radius: 0px 81px 0px 0px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 80px;
+}
+
+.menuItemContainer {
+  color: #ffffff;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 28px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+}
+
+.menuItemTitle {
+  padding-left: 18px;
+}

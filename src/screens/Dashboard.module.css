@@ -1,0 +1,17 @@
+.dashboardContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  background-color: #ffffff;
+  height: 100vh;
+}
+
+.leftMenuContainer {
+  flex: 22;
+  /* border: 1px solid red; */
+}
+
+.rightContentContainer {
+  flex: 78;
+  /* border: 1px solid blue; */
+}
