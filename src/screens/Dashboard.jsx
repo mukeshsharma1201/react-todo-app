@@ -5,7 +5,8 @@ import LeftHamburgerMenu from '../components/HamburgerMenu';
 import RightTodoContent from '../components/TodoContent';
 // styles
 import styles from './Dashboard.module.css';
-
+import { Route, Switch } from 'react-router-dom';
+import About from './About';
 class Dashboard extends Component {
   state = {
     todos: [],
@@ -68,12 +69,19 @@ class Dashboard extends Component {
           <LeftHamburgerMenu />
         </div>
         <div className={styles.rightContentContainer}>
-          <RightTodoContent
-            todoList={this.state.todos}
-            addTodo={this.addTodo}
-            updateTodo={this.updateTodo}
-            removeTodo={this.removeTodo}
-          />
+          <Switch>
+            <Route exact path="/">
+              <RightTodoContent
+                todoList={this.state.todos}
+                addTodo={this.addTodo}
+                updateTodo={this.updateTodo}
+                removeTodo={this.removeTodo}
+              />
+            </Route>
+            <Route path="/about">
+              <About />
+            </Route>
+          </Switch>
         </div>
       </div>
     );
