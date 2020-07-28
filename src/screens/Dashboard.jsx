@@ -81,6 +81,11 @@ class Dashboard extends Component {
             <Route path="/about">
               <About />
             </Route>
+            <Route path="*">
+              <div>
+                <img src="https://images.unsplash.com/photo-1532003885409-ed84d334f6cc?w=1200" />
+              </div>
+            </Route>
           </Switch>
         </div>
       </div>
