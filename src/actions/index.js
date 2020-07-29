@@ -37,3 +37,13 @@ export const loadTodos = (dispatch, url) => {
     .then((response) => response.json())
     .then((data) => dispatch(appendTodos(data)));
 };
+
+export const loadTodosByCustomMiddleware = (url) => {
+  // this inner function gets called by custom middleware from store.js with store.dispatch and store.getState
+  return (dispatch) => {
+    // loadTodosByCustomMiddleware
+    return fetch(url)
+      .then((response) => response.json())
+      .then((data) => dispatch(appendTodos(data)));
+  };
+};
