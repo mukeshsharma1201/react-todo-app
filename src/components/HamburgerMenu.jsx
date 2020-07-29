@@ -36,6 +36,7 @@ const HamburgerMenu = (props) => (
     <div className={styles.navigationContainer}>
       {menuItems.map((menuItem, index) => (
         <NavLink
+          key={menuItem.title}
           exact
           to={menuItem.route}
           activeClassName={styles.activeNav}

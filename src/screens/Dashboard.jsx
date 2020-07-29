@@ -9,14 +9,15 @@ import About from './About';
 import styles from './Dashboard.module.css';
 //redux
 import { connect } from 'react-redux';
-import { createTodo, appendTodos, deleteTodo, updateTodo } from '../actions';
+import { createTodo, appendTodos, deleteTodo, updateTodo, loadTodos } from '../actions';
 
 class Dashboard extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
-    fetch('http://demo9421147.mockable.io/getTodos')
-      .then((response) => response.json())
-      .then((data) => dispatch(appendTodos(data)));
+    loadTodos(dispatch, 'http://demo9421147.mockable.io/getTodos');
+    // fetch('http://demo9421147.mockable.io/getTodos')
+    //   .then((response) => response.json())
+    //   .then((data) => dispatch(appendTodos(data)));
   }
 
   addTodo = (newTodoItem) => {

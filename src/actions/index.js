@@ -30,3 +30,10 @@ export const appendTodos = (todoItems) => {
     payload: todoItems,
   };
 };
+
+// Asycn Action creator
+export const loadTodos = (dispatch, url) => {
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => dispatch(appendTodos(data)));
+};

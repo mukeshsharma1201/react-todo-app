@@ -16,13 +16,15 @@ const todoReducer = (oldState = [], action) => {
     case DELETE_TODO:
       return oldState.filter((item) => item.id !== action.payload.id);
     case APPEND_TODO:
-      return uniqueMerge(oldState, action.payload);
+      return oldState.concat(action.payload);
     default:
       return oldState;
   }
 };
 
 function uniqueMerge(source = [], target = []) {
+  if (source.length === 0 && target.length === []) return source;
+
   // if source empty, return target
   if (source.length === 0) return target;
 
