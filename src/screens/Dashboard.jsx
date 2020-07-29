@@ -1,66 +1,46 @@
 import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
 
 // components
 import LeftHamburgerMenu from '../components/HamburgerMenu';
 import RightTodoContent from '../components/TodoContent';
+import About from './About';
 // styles
 import styles from './Dashboard.module.css';
-import { Route, Switch } from 'react-router-dom';
-import About from './About';
-class Dashboard extends Component {
-  state = {
-    todos: [],
-  };
+//redux
+import { connect } from 'react-redux';
+import { createTodo, appendTodos, deleteTodo, updateTodo } from '../actions';
 
+class Dashboard extends Component {
   componentDidMount() {
+    const { dispatch } = this.props;
     fetch('http://demo9421147.mockable.io/getTodos')
       .then((response) => response.json())
-      .then((data) =>
-        this.setState({
-          todos: data,
-        })
-      );
+      .then((data) => dispatch(appendTodos(data)));
   }
 
-  addTodo = (newTodoItem) =>
-    this.setState((prevState) => {
-      return {
-        todos: [
-          {
-            id: Math.ceil(Math.random() * 100),
-            title: newTodoItem,
-            completed: false,
-            createdOn: new Date(),
-            compltedOn: null,
-          },
-          ...prevState.todos,
-        ],
-      };
-    });
+  addTodo = (newTodoItem) => {
+    const { dispatch } = this.props;
+    dispatch(
+      createTodo({
+        id: Math.ceil(Math.random() * 100),
+        title: newTodoItem,
+        completed: false,
+        createdOn: new Date(),
+        compltedOn: null,
+      })
+    );
+  };
 
-  updateTodo = (itemId, newTodoItem) =>
-    this.setState((prevState) => {
-      let newTodos = prevState.todos.map((item) => {
-        if (item.id === itemId) {
-          return {
-            ...item,
-            ...newTodoItem,
-          };
-        }
+  updateTodo = (itemId, newTodoItem) => {
+    const { dispatch } = this.props;
+    dispatch(updateTodo(newTodoItem));
+  };
 
-        return item;
-      });
-      return {
-        todos: newTodos,
-      };
-    });
-
-  removeTodo = (prevTodoItem) =>
-    this.setState((prevState) => {
-      return {
-        todos: prevState.todos.filter((item) => item.id !== prevTodoItem.id),
-      };
-    });
+  removeTodo = (prevTodoItem) => {
+    const { dispatch } = this.props;
+    dispatch(deleteTodo(prevTodoItem));
+  };
 
   render() {
     return (
@@ -72,7 +52,7 @@ class Dashboard extends Component {
           <Switch>
             <Route exact path="/">
               <RightTodoContent
-                todoList={this.state.todos}
+                todoList={this.props.todos}
                 addTodo={this.addTodo}
                 updateTodo={this.updateTodo}
                 removeTodo={this.removeTodo}
@@ -93,4 +73,10 @@ class Dashboard extends Component {
   }
 }
 
-export default Dashboard;
+const mapDispatchToProps = (state) => {
+  return {
+    todos: state.todos,
+  };
+};
+
+export default connect(mapDispatchToProps)(Dashboard);
