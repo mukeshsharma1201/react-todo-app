@@ -9,14 +9,25 @@ import About from './About';
 import styles from './Dashboard.module.css';
 //redux
 import { connect } from 'react-redux';
-import { createTodo, appendTodos, deleteTodo, updateTodo, loadTodos, loadTodosByCustomMiddleware } from '../actions';
+import {
+  createTodo,
+  appendTodos,
+  deleteTodo,
+  updateTodo,
+  loadTodos,
+  loadTodosByCustomMiddleware,
+  loadTodosByThunk,
+} from '../actions';
 
 class Dashboard extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
 
+    // thunk middleware
+    dispatch(loadTodosByThunk('http://demo9421147.mockable.io/getTodos'));
+
     // custom middleware
-    dispatch(loadTodosByCustomMiddleware('http://demo9421147.mockable.io/getTodos'));
+    // dispatch(loadTodosByCustomMiddleware('http://demo9421147.mockable.io/getTodos'));
 
     // loadTodos(dispatch, 'http://demo9421147.mockable.io/getTodos');
 

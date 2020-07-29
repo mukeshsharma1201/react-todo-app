@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import allReducers from './reducers';
+import thunk from 'redux-thunk';
 
 // custom middlewares
 const simpleThunk = (store) => {
@@ -32,5 +33,5 @@ const simpleLogger = (store) => {
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-const store = createStore(allReducers, composeEnhancer(applyMiddleware(simpleLogger, simpleThunk)));
+const store = createStore(allReducers, composeEnhancer(applyMiddleware(simpleLogger, thunk)));
 export default store;

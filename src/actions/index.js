@@ -1,3 +1,5 @@
+import { getTodos } from '../services';
+
 export const CREATE_TODO = 'CREATE_TODO';
 export const UPDATE_TODO = 'UPDATE_TODO';
 export const DELETE_TODO = 'DELETE_TODO';
@@ -31,6 +33,8 @@ export const appendTodos = (todoItems) => {
   };
 };
 
+// READ MORE AT: https://stackoverflow.com/a/34599594/5022624
+
 // Asycn Action creator
 export const loadTodos = (dispatch, url) => {
   fetch(url)
@@ -43,6 +47,15 @@ export const loadTodosByCustomMiddleware = (url) => {
   return (dispatch) => {
     // loadTodosByCustomMiddleware
     return fetch(url)
+      .then((response) => response.json())
+      .then((data) => dispatch(appendTodos(data)));
+  };
+};
+
+export const loadTodosByThunk = () => {
+  return (dispatch) => {
+    // loadTodosByThunk
+    return getTodos()
       .then((response) => response.json())
       .then((data) => dispatch(appendTodos(data)));
   };
